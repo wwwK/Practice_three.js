@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js</title>
+    <link rel="stylesheet" type="text/css" href="./three.css" />
+
+    <!-- type module로 해야 다른 의존성 스크립트 알아서 다 로드ㅡ -->
+    <script type="module">
+        import * as THREE from '../node_modules/three/build/three.module.js';
+
+        function main() {
+            // renderer 생성
+            const canvas = document.querySelector('#c');
+            const renderer = new THREE.WebGLRenderer({canvas});
+
+            /* 카메라 객체 생성 */
+            const fov = 75;     // 시야각
+            const aspect = 2;   //the canvas default (300x150)    // 캔버스 가로세로비율
+
+            //카메라 앞에 렌더링되는 공간 범위를 지정
+            const near = 0.1;
+            const far = 5;
+
+            const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);     // 절두체 생성
+            camera.position.z = 2;      // 카메라 이동
+
+            // scene 생성
+            const scene = new THREE.Scene();
+
+            // 정육면체 생성
+            const boxWidth = 1;
+            const boxHeight = 1;
+            const boxDepth = 1;
+            const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+
+            // material 만들고 색 지정
+            const material = new THREE.MeshBasicMaterial({color: 0x44aa88});    // hex
+
+            // Geometry + Material => Mesh
+            const cube = new THREE.Mesh(geometry, material);
+
+            // scene에 Mesh 추가
+            scene.add(cube);
+
+            // 렌더러에 scene, camera 넘겨 주고 화면 렌더링
+            // renderer.render(scene, camera);
+
+            // 재귀 함수
+            function render(time) {
+                time *= 0.001;  // convert time to seconds
+                
+                // 회전 값을 현재 시간 값으로 설정 (라디안 단위 사용)
+                cube.rotation.x = time;
+                cube.rotation.y = time;
+                
+                renderer.render(scene, camera);
+                
+                // 브라우저에 애니메이션 프레임을 요청하는 함수
+                requestAnimationFrame(render);      // 브라우저는 넘겨받은 함수를 실행하고, 페이지에 변화가 있다면 페이지를 다시 렌더링
+            }
+            requestAnimationFrame(render);      // 루프 시작
+        } 
+
+        main();
+
+        
+
+    </script>
+</head>
+<body>
+    <canvas id="c"></canvas>
+</body>
+</html>
