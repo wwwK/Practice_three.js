@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Libre Baskerville', serif;
+}
+
+body {
+    /* background-color: #ffffff; */
+    width: 100%;
+    height: 100vh;
+
+    overscroll-behavior: none;
+    background-color: black;
+    color: white;
+    /* background: url('./images/noise.gif'); */
+}
+
+h1 {
+    letter-spacing: 3px;
+    font-weight: 700;
+    margin: 2rem;
+}
+
+h4 {
+    font-weight: 400;
+    margin: 2rem;
+}
+
+main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.main-slider {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 900vw;
+    height: 100%;
+    /* background-color: #ffffff; */
+    /* border: 10px solid #161616; */
+    will-change: transform;
+}
+
+.inner-slider-one {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    will-change: transform;
+}
+
+.inner-slider-two {
+    position: absolute;
+    left: 40vh;
+    top: 40vh;
+    width: 120%;
+    height: 50vh;
+    display: flex;
+    justify-content: space-around;
+    will-change: transform;
+}
+
+/* svg {
+    width: 400px;
+    height: 100%;
+    padding: 20px;
+    opacity: 0;
+    will-change: transform;
+    transition: all 0.5s ease-out;
+}
+
+svg.active {
+    opacity: 1;
+} */
+
+.title-page {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-box {
+    width: 90vw;
+    height: 70vh;
+    background-color: rgba(0, 0, 0, 0.856);
+    padding: 1.5rem;
+    margin: 5vw;
+}
+
+p {
+    font-size: 1rem;
+    word-spacing: 0.3rem;
+    line-height: 1.5rem;
+}
+
+svg {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.space {
+    width: 100vw;
+    height: 100vh;
+}
+
+canvas {
+    z-index: 1;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+
+.canvas {
+    position: absolute;
+    left: 0;
+    z-index: -1;
+}
+
+circle {
+    transition: fill 0.15s ease-in-out, stroke 0.15s ease-in-out;
+}
+
+#c {
+    width: 100%;
+    height: 50%;
+    top: 25%;
+    /* z-index: -1; */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}

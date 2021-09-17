@@ -48,6 +48,8 @@
             // 렌더러에 scene, camera 넘겨 주고 화면 렌더링
             // renderer.render(scene, camera);
 
+            renderer.setSize(width, 500);
+
             // 재귀 함수
             function render(time) {
                 time *= 0.001;  // convert time to seconds
