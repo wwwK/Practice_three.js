@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro Demo</title>
+    <link href="./demo.css" rel="stylesheet">
+
+    <!-- swiper.js -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+</head>
+<body>
+    <div class="swiper mySwiper swiper-initialized swiper-vertical swiper-pointer-events">
+        <div class="swiper-wrapper" id="swiper-wrapper-test1" aria-live="polite">
+            <div class="swiper-slide" role="group" aria-label="1/5"> 
+               <div class="mainContainer">
+                   <p class="title">Test Title</p>
+                   <div class="soundToggle">
+                    <p>Sound On/Off</p>
+                    </div>
+                   <div class="startButton btn">
+                       Begin
+                   </div>
+               </div>
+            </div>
+            <div class="swiper-slide" role="group" aria-label="2/5">
+                <video autoplay muted loop>
+                    <source src="../people.mp4" type="video/mp4">
+                </video>
+                <div class="textBox">
+                    <div class="paragraph">Test for textbox design</div>
+                </div>
+                <div class="textBox" style="background-color: aqua;">
+                    <div class="paragraph">Test for textbox design</div>
+                </div>
+                <div class="textBox" style="background-color: orange;">
+                    <div class="paragraph">Test for textbox design</div>
+                </div>
+                <div class="textBox" style="background-color: green;">
+                    <div class="paragraph">Test for textbox design</div>
+                </div>
+            </div>
+            <div class="swiper-slide" role="group" aria-label="3/5"> 
+                Interactive Line Chart
+            </div>
+            <div class="swiper-slide" role="group" aria-label="4/5">
+                 Inside Gallary
+            </div>
+            <div class="swiper-slide" role="group" aria-label="5/5">
+                Link to Stories
+            </div>
+        </div>
+
+        <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-vertical">
+            <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+            <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+            <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+            <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+            <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+        </div>
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+    </div>
+    
+    <script src="./demo.js"></script>
+</body>
+</html>

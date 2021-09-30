@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro Demo - nested</title>
+    <link href="./demo.css" rel="stylesheet">
+
+    <!-- swiper.js -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+</head>
+<body>
+    <div class="swiper mySwiper swiper-initialized swiper-vertical swiper-pointer-events">
+        <div class="swiper-wrapper" id="swiper-wrapper-test1" aria-live="polite">
+            <div class="swiper-slide" role="group" aria-label="1/5"> 
+                <video autoplay loop muted>
+                    <source src="../people.mp4" type="video/mp4">
+                </video>
+                <div class="mainContainer">
+                    <p class="title">Test Main Page</p>
+                    Sound On / Off <br>
+                    Begin Button
+                </div>
+            </div>
+            <div class="swiper-slide" role="group" aria-label="2/5">
+                <div class="swiper mySwiper2 swiper-initialized swiper-vertical swiper-pointer-events">
+                    <div class="swiper-wrapper" id="swiper-wrapper-test2" aria-live="polite">
+                        <div class="swiper-slide swiper-slide-visible" role="group" aria-level="1 / 5">
+                            TEST
+                        </div>
+                        <div class="swiper-slide" role="group" aria-level="2 / 5">
+                            <div class="textBox">
+                                <div class="paragraph">
+                                    The more the sea rises, the easier it is for waves to cause floods.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide" role="group" aria-level="3 / 5">Nested Slide 3</div>
+                        <div class="swiper-slide" role="group" aria-level="4 / 5">Nested Slide 4</div>
+                        <div class="swiper-slide" role="group" aria-level="5 / 5">Nested Slide 5</div>
+                    </div>
+                </div>
+                
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+            </div>
+            <div class="swiper-slide" role="group" aria-label="3/5"> 
+                Interactive Line Chart
+            </div>
+            <div class="swiper-slide" role="group" aria-label="4/5">
+                 Inside Gallary
+            </div>
+            <div class="swiper-slide" role="group" aria-label="5/5">
+                Link to Stories
+            </div>
+        </div>
+
+        <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-vertical">
+            <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+            <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+            <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+            <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+            <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+        </div>
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+    </div>
+    
+    <script src="./demo.js"></script>
+</body>
+</html>
