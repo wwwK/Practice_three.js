@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+}
+
+.container {
+    width: 100%;
+    height: 800vh;
+}
+
+.mainCon {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    color: white;
+}
+
+.s2 {
+}
+
+.s3 {
+    
+}
+
+.s4 {
+    background-color: darkkhaki;
+}
+
+.s5 {
+    background-color: thistle;
+}
+
+.slide {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    margin: 0;
+}
+
+.title {
+    font-size: 5rem;
+    margin: 5rem;
+}
+
+.beginBtn {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.textCon {
+    height: 200vh;
+    background-color: black;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.video {
+    width: 100%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.video video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.textCon img {
+    width: 100%;
+    height: 100vh;
+    opacity: 0.1;
+}
+
+.chartCon {
+    height: 300vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#chart {
+    text-align: center;
+    position: sticky;
+    top: 40px;
+}

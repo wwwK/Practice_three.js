@@ -26,80 +26,26 @@ swiper.on('slideChange', function (e) {
     }
 
     let accum1 = 0;
+    let toggle = true;
+    let count = 0;
     if (e.activeIndex === 1) {
+        textBoxes[0].style.opacity = 1;
         swiper.mousewheel.disable();
         curSlide.addEventListener('wheel', function(e) {
             accum1 += e.deltaY;
-            console.log(accum1, textBoxIndex);
-
-            if (Math.abs(accum1) > 1000) {
-                if (e.deltaY > 0) {
-                    console.log('plus')
-                    textBoxIndex += 1;
-                    if (textBoxIndex < 4 && textBoxIndex > -1) {
-                        textBoxes[textBoxIndex].style.opacity = 1;
-                    }
-                    else {
-                        swiper.mousewheel.enable();
-                        accum1 = 0;
-                    }
-                }
-                else {
-                    console.log('minus');
-                    textBoxIndex -= 1;
-                    if (textBoxIndex > -1 && textBoxIndex < 4) textBoxes[textBoxIndex].style.opacity = 0;
-                    else {
-                        swiper.mousewheel.enable();
-                        accum1 = 0;
-                    }
-                }
-                accum1 = 0;
-                console.log(accum1, textBoxIndex);
+            console.log('before', accum1);
+            if (count > 5) {
+                swiper.mousewheel.enable();
+                count = 0;
             }
-            e.preventDefault();
-           
-            // if (accum > 1000) {
-            //     swiper.mousewheel.enable();
-            //     accum = 0;
-            // }
-
-            // if (accum > 800) {
-            //     textBoxes[3].style.opacity = 1;
-            // } else {
-            //     if (accum > 600) {
-            //         textBoxes[2].style.opacity = 1;
-            //     } else {
-            //         if (accum > 400) {
-            //             textBoxes[1].style.opacity = 1;
-            //         } else {
-            //             if (accum > 200) {
-            //                 textBoxes[0].style.opacity = 1;
-            //             }
-            //         }
-            //     }
-            // }
-
-
-            // if (accum < - 1000) {
-            //     swiper.mousewheel.enable();
-            //     accum = 0;
-            // }
-
-            // if (accum < -800) {
-            //     textBoxes[0].style.opacity = 0;
-            // } else {
-            //     if (accum < -600) {
-            //         textBoxes[1].style.opacity = 0;
-            //     } else {
-            //         if (accum < -400) {
-            //             textBoxes[2].style.opacity = 0;
-            //         } else {
-            //             if (accum < -200) {
-            //                 textBoxes[3].style.opacity = 0;
-            //             }
-            //         }
-            //     }
-            // }
+            if (Math.abs(accum1) >= 500) {
+                console.log('over 500');
+                accum1 = 0;
+                console.log('after', accum1);
+                textBoxes[0].style.opacity = toggle ? 1 : 0;
+                toggle = !toggle;
+                count += 1;
+            }
         })
     }
 

@@ -1,6 +1,7 @@
 let swiper = new Swiper(".mySwiper", {
     direction: "vertical",
     slidesPerView: 1,
+    speed: 1000,
     mousewheel: true,
     pagination: {
         el: ".swiper-pagination",
@@ -8,10 +9,50 @@ let swiper = new Swiper(".mySwiper", {
     },
 });
 
+let interleaveOffset = 0.5;
 let swiper2 = new Swiper(".mySwiper2", {
     direction: 'vertical',
     mousewheel: true,
+    watchSlidesProgress: true,
+    mousewheelControl: true,
+    speed: 1000,
+    on: {
+        progress: function() {
+          var swiper = this;
+          console.log('swipers progress');
+          console.log(swiper.progress);
+          let slides = swiper.slides;
+          for (var i = 0; i < slides.length; i++) {
+            var slideProgress = slides[i].progress;
+            console.log(slides[i].querySelector('.test'));
+            if (slideProgress>= 0) {
+                slides[i].querySelector('.test').style.opacity = slideProgress === 0 ? 1 : 0;
+            }
+            else {
+                slides[i].querySelector('.test').style.opacity = 0;
+            }
+            console.log('slides[' + i + '] progress');
+            console.log(slides[i].progress);
+          }      
+        },
+        touchStart: function() {
+          var swiper = this;
+          for (var i = 0; i < swiper.slides.length; i++) {
+            swiper.slides[i].style.transition = "";
+            swiper.slides[i].querySelector('.test').style.transition = '';
+          }
+        },
+        setTransition: function(speed) {
+          var swiper = this;
+          for (var i = 0; i < swiper.slides.length; i++) {
+            swiper.slides[i].style.transition = speed + "ms";
+            swiper.slides[i].querySelector('.test').style.transition = speed + 'ms';
+          }
+        },
+    }
 }) 
+
+
 
 let prevSlide = 0;
 
@@ -30,6 +71,7 @@ swiper.on('slideChange', function (e) {
     // Nested Slides
     if (e.activeIndex === 1) {
         swiper.mousewheel.disable();
+        swiper.disable();
         console.log('swiper disabled');
     }
     if (e.activeIndex === 2) {
@@ -50,28 +92,8 @@ swiper.on('slideChange', function (e) {
 
 let prevSlide2 = 0;
 swiper2.on('slideChange', function(e) {
-    let curSlide2;
-    if (prevSlide2 < e.activeIndex) {
-        console.log('choose next');
-        curSlide2 = document.querySelector('.swiper-slide-next');
-    }
-    else {
-        curSlide2 = document.querySelectorAll('.swiper-slide-prev')[1];
-        console.log('choose prev');
-    }
-
-    console.log(curSlide2)
-    console.log(curSlide2.ariaLevel[0]);
-    console.log(prevSlide2);
-    if ((curSlide2.ariaLevel[0] === '5' && prevSlide2 === 3) || curSlide2.ariaLevel[0] === '1' && prevSlide2 === 1) {
-        console.log('testenable')
-        curSlide2.addEventListener('wheel', swiperEnable);
-    }
-    prevSlide2 = e.activeIndex;
+    if ((e.activeIndex === 4 && e.previousIndex === 3) || e.activeIndex === 0 && e.previousIndex === 1) {
+        swiper.mousewheel.enable();
+        swiper.enable();
+    } 
 })
-
-function swiperEnable() {
-    console.log('swiper enabled');
-    swiper.mousewheel.enable();
-    this.removeEventListener('wheel', swiperEnable);
-}
