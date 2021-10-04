@@ -13,6 +13,8 @@
         href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
     />
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
 <body>
     <div class="swiper mySwiper swiper-initialized swiper-vertical swiper-pointer-events">
@@ -20,14 +22,19 @@
             <div class="swiper-slide" role="group" aria-label="1/5"> 
                 <div class="mainContainer">
                     <p class="title">Test Main Page</p>
-                    Sound On / Off <br>
-                    Begin Button
+                    <div class="soundCon">
+                        This article has sound
+                        <i class="fas fa-headphones-alt"></i>
+                    </div>
+                    <div class="beginBtn">
+                        <p>Begin</p>
+                    </div>
                 </div>
             </div>
             <div class="swiper-slide boxContainer" role="group" aria-label="2/5">
                 <div class="video">
                     <video autoplay muted loop>
-                        <source src="../title.mp4" type="video/mp4">
+                        <source src="./rain.mp4" type="video/mp4">
                     </video>
                     <img src="./noise.gif">
                 </div>
@@ -76,7 +83,41 @@
                  Inside Gallary
             </div>
             <div class="swiper-slide" role="group" aria-label="5/5">
-                Link to Stories
+                <div class="storyContainer">
+                    <div class="story story1 mainstory">
+                        <img src="1.jpg">
+                        <div class="storyInfo">
+                            <div class="storyTitle">
+                                Omega
+                            </div>
+                            <div class="description">
+                                Story about omega.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story story2">
+                        <img src="2.jpg">
+                        <div class="storyInfo">
+                            <div class="storyTitle">
+                                Alpha
+                            </div>
+                            <div class="description">
+                                Story about alpha.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story story3">
+                        <img src="3.jpg">
+                        <div class="storyInfo">
+                            <div class="storyTitle">
+                                Delta
+                            </div>
+                            <div class="description">
+                                Story about delta.
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
