@@ -21,27 +21,29 @@
         <div class="swiper-wrapper" id="swiper-wrapper-test1" aria-live="polite">
             <div class="swiper-slide" role="group" aria-label="1/5"> 
                 <div class="mainContainer">
-                    <p class="title">Test Main Page</p>
+                    <p class="title">인트로 내용에 대한 제목</p>
                     <div class="soundCon">
-                        This article has sound
+                        이 기사는 소리를 포함하고 있습니다.
                         <i class="fas fa-headphones-alt"></i>
                     </div>
                     <div class="beginBtn">
-                        <p>Begin</p>
+                        <p>시작하기</p>
                     </div>
                 </div>
             </div>
             <div class="swiper-slide boxContainer" role="group" aria-label="2/5">
                 <div class="video">
-                    <video autoplay muted loop>
-                        <source src="./rain.mp4" type="video/mp4">
+                    <div class='videoBtn'>
+                    </div>
+                    <video id="vid" autoplay muted loop>
+                        <source src="./Fl_KidsShipJump.mp4" type="video/mp4">
                     </video>
                     <img src="./noise.gif">
                 </div>
                 <div class="swiper mySwiper2 swiper-initialized swiper-vertical swiper-pointer-events">
                     
                     <div class="swiper-wrapper" id="swiper-wrapper-test2" aria-live="polite">
-                        <div class="swiper-slide swiper-slide-visible" role="group" aria-level="1 / 5">
+                        <div class="swiper-slide swiper-slide-visible empty" role="group" aria-level="1 / 5">
                             <div class="test">
                                 (Empty)
                             </div>
@@ -53,20 +55,23 @@
                                 </div>
                             </div> -->
                             <div class="test">
-                                Nested Slide 1
+                                예시 문단 1 <br>
+                                예시 문단입니다. 예시 문단입니다. 예시 문단입니다. 예시 문단입니다. <br> 예시 문단입니다. 예시 문단입니다. 예시 문단입니다. 예시 문단입니다.
                             </div>
                         </div>
                         <div class="swiper-slide" role="group" aria-level="3 / 5">
                             <div class="test">
-                                Nested Slide 2
+                                예시 문단 2 <br>
+                                예시 문단입니다. 예시 문단입니다. 예시 문단입니다. 예시 문단입니다. <br> 예시 문단입니다. 예시 문단입니다. 예시 문단입니다. 예시 문단입니다.
                             </div>
                         </div>
                         <div class="swiper-slide" role="group" aria-level="4 / 5">
                             <div class="test">
-                                Nested Slide 3
+                                예시 문단 3 <br>
+                                예시 문단입니다. 예시 문단입니다. 예시 문단입니다. 예시 문단입니다. <br> 예시 문단입니다. 예시 문단입니다. 예시 문단입니다. 예시 문단입니다.
                             </div>
                         </div>
-                        <div class="swiper-slide" role="group" aria-level="5 / 5">
+                        <div class="swiper-slide empty" role="group" aria-level="5 / 5">
                             <div class="test">
                                 (Empty)
                             </div>
@@ -84,37 +89,55 @@
             </div>
             <div class="swiper-slide" role="group" aria-label="5/5">
                 <div class="storyContainer">
-                    <div class="story story1 mainstory">
-                        <img src="1.jpg">
+                    <div class="story story1">
+                        <!-- <img src="s1.jpg"> -->
+                        <video muted loop>
+                            <source src="./Iz_Intro.mp4" type="video/mp4">
+                        </video>
                         <div class="storyInfo">
-                            <div class="storyTitle">
-                                Omega
+                            <!-- <div class="storyTitle">
+                                1화. 안산은 한국의 미래다
+                            </div> -->
+                            <div class="storyBtn">
+                                <p>기사 읽기</p>
                             </div>
-                            <div class="description">
+                            <!-- <div class="description">
                                 Story about omega.
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="story story2">
-                        <img src="2.jpg">
+                        <!-- <img src="s2.jpg"> -->
+                        <video muted loop>
+                            <source src="./Fl_IzermanStory.mp4" type="video/mp4">
+                        </video>
                         <div class="storyInfo">
-                            <div class="storyTitle">
-                                Alpha
+                            <!-- <div class="storyTitle">
+                                2화. 그들이 없으면 우리도 불편하다
+                            </div> -->
+                            <div class="storyBtn">
+                                기사 읽기
                             </div>
-                            <div class="description">
+                            <!-- <div class="description">
                                 Story about alpha.
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="story story3">
-                        <img src="3.jpg">
+                        <!-- <img src="s3.jpg"> -->
+                        <video muted loop>
+                            <source src="./Wi_BigCountries.mp4" type="video/mp4">
+                        </video>
                         <div class="storyInfo">
-                            <div class="storyTitle">
-                                Delta
+                            <!-- <div class="storyTitle">
+                                3화. 다시, 안산은 한국의 미래다
+                            </div> -->
+                            <div class="storyBtn">
+                                기사 읽기
                             </div>
-                            <div class="description">
+                            <!-- <div class="description">
                                 Story about delta.
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

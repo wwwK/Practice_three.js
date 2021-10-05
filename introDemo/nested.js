@@ -7,6 +7,7 @@ let swiper = new Swiper(".mySwiper", {
         el: ".swiper-pagination",
         clickable: true,
     },
+    effect: 'fade',
 });
 
 let interleaveOffset = 0.5;
@@ -87,6 +88,9 @@ swiper.on('slideChange', function (e) {
             }
         })
     }
+    // if (e.activeIndex === 4) {
+    //     swiper.disable();
+    // }
     prevSlide = e.activeIndex;
 });
 
@@ -97,3 +101,61 @@ swiper2.on('slideChange', function(e) {
         swiper.enable();
     } 
 })
+
+
+let stories = document.querySelectorAll('.story');
+for (let s of stories) {
+    s.addEventListener('click', expandStories);
+    s.addEventListener('mouseover', hoverImage);
+    s.addEventListener('mouseleave', hoverImage);
+
+}
+
+function hoverImage(e) {
+    if (this.className !== currentClass) {
+        if (e.type === 'mouseleave') {
+            this.children[0].style.filter = 'grayscale() brightness(0.5)';
+        }
+        else this.children[0].style.filter = 'grayscale() brightness(0.8)';
+    }
+}
+
+let previous;
+let currentClass;
+function expandStories() {
+    let this_id = this.className[11];
+    console.log(this_id)
+    if (previous) {
+        previous.style.flex = 1;
+        previous.children[0].pause();
+        previous.children[0].style.filter = 'grayscale() brightness(0.5)';
+        this.style.flex = 1.5;
+        this.children[0].style.filter = 'grayscale(0) brightness(1)';
+        this.children[0].play();
+        currentClass = this.className;
+    }
+    
+    previous = this;
+}
+
+
+
+
+let videoBtn = document.querySelector('.videoBtn');
+videoBtn.addEventListener('click', playPause);
+
+let video = document.querySelector('#vid');
+console.log(video);
+
+function playPause() {
+    if (video.paused) {
+      video.play();
+      videoBtn.innerHTML = "&#10073;&#10073;";
+    } else {
+      video.pause();
+      videoBtn.innerHTML = "►";
+    }
+}
+
+let beginBtn = document.querySelector('.beginBtn');
+beginBtn.onclick = () => swiper.slideNext();
