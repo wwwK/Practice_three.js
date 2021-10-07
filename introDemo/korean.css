@@ -1,0 +1,527 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+@font-face {
+    font-family: 'KOTRA_BOLD-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.1/KOTRA_BOLD-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SpoqaHanSansNeo-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    font-family: 'SpoqaHanSansNeo-Regular';
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    background-color: black;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+
+    /* prevent flickering in safari */
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+#textBox {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mainContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    background-color: black;
+    /* height: 300vh; */
+}
+
+.backgroundImage {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+
+
+.beginBtn {
+    cursor: pointer;
+    margin: 2rem;
+    font-size: 1.3rem;
+    background-color: white;
+    color: black;
+    padding: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-weight: 700;
+    z-index: 1;
+}
+
+.title {
+    z-index: 1;
+    font-size: 7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 2rem;
+    font-family: 'KOTRA_BOLD-Bold';
+}
+
+.description {
+    z-index: 1;
+    font-size: 1.3rem;
+    margin: 1rem;
+}
+
+.soundCon {
+    font-size: 1.3rem;
+    margin: 2rem;
+    color: gray;
+    z-index: 1;
+}
+
+#swiper-wrapper-test2 .swiper-slide {
+    background: transparent;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.textBox {
+    padding: 2rem;
+    background-color: black;
+    position: absolute;
+    transition: opacity 0.2s;
+}
+
+.paragraph {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.textBox {
+    opacity: 0;
+}
+
+.test {
+    width: 400px;
+    line-height: 2rem;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.74);
+    color: white;
+    font-size: 1.2rem;
+    padding: 2rem;
+    text-align: left;
+    margin-left: 5rem;
+}
+
+.video {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+}
+
+.video video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video img {
+    width: 100%;
+    height: 100vh;
+    opacity: 0.05;
+    position: absolute;
+}
+
+.boxContainer {
+
+}
+
+
+p {
+    margin: 0;
+}
+
+.storyContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.story {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    transition: all 0.5s;
+    overflow: hidden;
+}
+
+.story video {
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    filter: grayscale() brightness(0.5);
+    transition: all 0.5s;
+}
+
+.storyImgCon {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 1;
+}
+
+.storyImg {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.storyImg img {
+    position: relative;
+    height: 700px;
+    width: 120%;
+    object-fit: contain;
+    transform: translate(-50%, 50px);
+    transition: all 0.5s;
+}
+
+
+
+.storyInfo {
+    position: absolute;
+    color: white;
+    top: 0;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty {
+    opacity: 0;
+}
+
+.storyTitle {
+    font-size: 1.8rem;
+    padding: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    background-color: black;
+}
+
+h1 {
+    margin: 0;
+}
+
+.storyBtn {
+    opacity: 0;
+    margin: 2rem;
+    font-size: 1.5rem;
+    background-color: white;
+    color: black;
+    padding: 1rem;
+    border-radius: 10%;
+}
+
+.videoBtn {
+    cursor: pointer;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.603);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    z-index: 10;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    position: absolute;
+    bottom: 0;
+}
+
+.soundBtn {
+    cursor: pointer;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    font-size: 22px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#vUp, #vMute {
+    position: absolute;
+}
+
+.videoBtn svg {
+    position: absolute;
+    fill: transparent;
+    stroke: rgba(255, 255, 255, 0.466);
+    stroke-width: 4px;
+}
+
+.swiper-pagination-bullet { 
+    width: 20px !important; 
+    height: 4px !important; 
+    background: white !important; 
+    /* border: 1px solid pink;  */
+    opacity: 1;
+    border-radius: 0% !important; 
+}
+.swiper-pagination-bullet-active { 
+    width: 40px !important; 
+    transition: width .5s !important; 
+    /* border-radius: 5px;  */
+    background: pink; 
+    /* border: 1px solid transparent;  */
+}
+
+.swiper-pagination-lock {
+    display: initial !important;
+}
+
+#bar {
+    transform-origin: center;
+    transform: rotate(-90deg);
+    transition: stroke-dashoffset 0.5s linear;
+    stroke: white;
+    stroke-width: 4px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+#iconPlay {
+    position: absolute;
+}
+
+#iconPause {
+    position: absolute;
+}
+
+
+.mapContainer {
+    width: 100%;
+    height: 100%;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.button {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+}
+
+.gradientImage {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.61));
+}
+
+.percentContainer {
+    width: 30%;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+}
+
+#pctVal {
+    font-size: 8rem;
+    font-weight: 700;
+    z-index: 1;
+    opacity: 0;
+}
+
+.perIcon {
+    font-size: 7rem;
+    margin: 1rem;
+}
+
+.pctCircle {
+    background: black;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 0;
+}
+
+.percentContainer i {
+    font-size: 50px;
+    color: white;
+    position: absolute;
+    bottom: 300px;
+    z-index: 1;
+}
+
+.chartCon {
+    width: 100%;
+    height: 200vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#chart {
+    text-align: center;
+    position: sticky;
+    top: 40px;
+}
+
+.skipBtn {
+    font-size: 1.2rem;
+    position: fixed;
+    margin: 1rem;
+    color: white;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    visibility: visible;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.backBtn {
+    font-size: 1.2rem;
+    position: fixed;
+    margin: 1rem;
+    color: white;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    visibility: hidden;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.button {
+    top: 0;
+    position: absolute;
+      width: 100px;
+      height: 100px;
+      border: 1px solid;
+      color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      opacity: 0;
+  }
+
+  #c {
+    width: 100%;
+    height: 100%;
+  }
+  
+  #container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 5;
+  }
+  
+  #labels {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: white;
+    opacity: 0;
+  }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intro Demo - nested</title>
+    <title>Intro Demo</title>
     <link href="./demo.css" rel="stylesheet">
 
     <!-- swiper.js -->
@@ -14,32 +14,70 @@
     />
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
+    <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <!-- mapbox -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- d3 -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
 </head>
 <body>
+    <div class="skipBtn"> <i class="fas fa-caret-right"></i> SKIP INTRODUCTION</div>
+    <div class="backBtn"> <i class="fas fa-caret-left"></i> BACK TO INTRODUCTION</div>
     <div class="swiper mySwiper swiper-initialized swiper-vertical swiper-pointer-events">
         <div class="swiper-wrapper" id="swiper-wrapper-test1" aria-live="polite">
+            <!-- 첫 화면 -->
             <div class="swiper-slide" role="group" aria-label="1/5"> 
                 <div class="mainContainer">
-                    <p class="title">인트로 내용에 대한 제목</p>
+                    <p class="title"> FrontLine + groundtruth project</p>
                     <div class="soundCon">
-                        이 기사는 소리를 포함하고 있습니다.
                         <i class="fas fa-headphones-alt"></i>
+                        This experience has sound
                     </div>
                     <div class="beginBtn">
-                        <p>시작하기</p>
+                        <p>Begin</p>
                     </div>
                 </div>
             </div>
+            <!-- 두번째 슬라이드 & nested slides -->
+            <!-- [비디오 재생/정지 + 소리 on/off + 텍스트박스] 예시 -->
             <div class="swiper-slide boxContainer" role="group" aria-label="2/5">
                 <div class="video">
-                    <div class='videoBtn'>
+                    <!-- 소리 on/off 버튼 -->
+                    <div class="soundBtn">
+                        <i class="fas fa-volume-mute" id="vMute"></i>
+                        <i class="fas fa-volume-up hidden" id="vUp"></i>
                     </div>
+
+                    <!-- 비디오 재생/정지 버튼 -->
+                    <div class='videoBtn'>
+                        <div id="iconPlay" class="hidden">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div id="iconPause">
+                            <i class="fas fa-pause"></i>
+                        </div>
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="42"/>
+                        </svg>
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle id="bar" cx="50" cy="50" r="42"/>
+                        </svg>
+                    </div>
+
+                    <!-- 비디오 -->
                     <video id="vid" autoplay muted loop>
                         <source src="./Fl_KidsShipJump.mp4" type="video/mp4">
                     </video>
+
+                    <!-- 노이즈 효과 -->
                     <img src="./noise.gif">
                 </div>
+
+                <!-- Nested Slides -->
                 <div class="swiper mySwiper2 swiper-initialized swiper-vertical swiper-pointer-events">
                     
                     <div class="swiper-wrapper" id="swiper-wrapper-test2" aria-live="polite">
@@ -49,26 +87,18 @@
                             </div>
                         </div>
                         <div class="swiper-slide" role="group" aria-level="2 / 5">
-                            <!-- <div class="textBox">
-                                <div class="paragraph">
-                                    The more the sea rises, the easier it is for waves to cause floods.
-                                </div>
-                            </div> -->
                             <div class="test">
-                                예시 문단 1 <br>
-                                예시 문단입니다. 예시 문단입니다. 예시 문단입니다. 예시 문단입니다. <br> 예시 문단입니다. 예시 문단입니다. 예시 문단입니다. 예시 문단입니다.
+                                Rising seas are threatening the Marshall Islands, a low-lying island nation in the middle of the Pacific Ocean.
                             </div>
                         </div>
                         <div class="swiper-slide" role="group" aria-level="3 / 5">
                             <div class="test">
-                                예시 문단 2 <br>
-                                예시 문단입니다. 예시 문단입니다. 예시 문단입니다. 예시 문단입니다. <br> 예시 문단입니다. 예시 문단입니다. 예시 문단입니다. 예시 문단입니다.
+                                Floods, once rare, have become common.
                             </div>
                         </div>
                         <div class="swiper-slide" role="group" aria-level="4 / 5">
                             <div class="test">
-                                예시 문단 3 <br>
-                                예시 문단입니다. 예시 문단입니다. 예시 문단입니다. 예시 문단입니다. <br> 예시 문단입니다. 예시 문단입니다. 예시 문단입니다. 예시 문단입니다.
+                                The Marshall Islands are home to over 50,000 people.
                             </div>
                         </div>
                         <div class="swiper-slide empty" role="group" aria-level="5 / 5">
@@ -81,69 +111,102 @@
                 
                 <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
             </div>
-            <div class="swiper-slide" role="group" aria-label="3/5"> 
-                Interactive Line Chart
+
+            <!-- 스크롤 반응 차트 넣을 예정 -->
+            <div class="swiper-slide" role="group" aria-label="3/5">
+                <div class="chartCon" id="chartCon">
+                    <div id="chart"></div>
+                </div>
             </div>
+
+            <!-- 내부 요소 넣을 예정 -->
             <div class="swiper-slide" role="group" aria-label="4/5">
-                 Inside Gallary
+                <div class="mapContainer">
+                    <div id='map'></div>
+                </div>
+                <!-- <div class="gradientImage">
+                    
+                </div> -->
+                <!-- <div class="button b1">seoul</div>
+                <div class="button b2">ansan</div>
+                <div class="button b3">wongok</div>
+                <div class="button b4">school</div>   -->
+                <div class="percentContainer">
+                    <i class="fas fa-arrow-circle-right" id="b4"></i>
+                    <i class="fas fa-arrow-circle-right" id="b3"></i>
+                    <i class="fas fa-arrow-circle-right" id="b2"></i>
+                    <i class="fas fa-arrow-circle-right" id="b1"></i>
+                    <div id="pctVal"></div>
+                </div>
             </div>
+
+            <!-- 회차 이동 -->
             <div class="swiper-slide" role="group" aria-label="5/5">
                 <div class="storyContainer">
+                    <!-- png 이미지 컨테이너 -->
+                    <div class="storyImgCon">
+                        <div class="storyImg" id="si1">
+                            <img src="./side1.png">
+                        </div>
+                        <div class="storyImg" id="si2">
+                            <img src="./side2.png">
+                        </div>
+                        <div class="storyImg" id="si3">
+                            <img src="./side3.png">
+                        </div>
+                    </div>
+
+                    <!-- 스토리 -->
                     <div class="story story1">
-                        <!-- <img src="s1.jpg"> -->
                         <video muted loop>
                             <source src="./Iz_Intro.mp4" type="video/mp4">
                         </video>
+                    
                         <div class="storyInfo">
-                            <!-- <div class="storyTitle">
-                                1화. 안산은 한국의 미래다
-                            </div> -->
+                            <div class="storyTitle">
+                                <span>THE PRESENT</span>
+                                <h1>IZERMAN</h1>
+                            </div>
                             <div class="storyBtn">
                                 <p>기사 읽기</p>
                             </div>
-                            <!-- <div class="description">
-                                Story about omega.
-                            </div> -->
                         </div>
                     </div>
                     <div class="story story2">
-                        <!-- <img src="s2.jpg"> -->
                         <video muted loop>
                             <source src="./Fl_IzermanStory.mp4" type="video/mp4">
                         </video>
+                        
                         <div class="storyInfo">
-                            <!-- <div class="storyTitle">
-                                2화. 그들이 없으면 우리도 불편하다
-                            </div> -->
+                            <div class="storyTitle">
+                                <span>THE PAST</span>
+                                <h1>JULIA</h1>
+                            </div>
                             <div class="storyBtn">
                                 기사 읽기
                             </div>
-                            <!-- <div class="description">
-                                Story about alpha.
-                            </div> -->
                         </div>
                     </div>
                     <div class="story story3">
-                        <!-- <img src="s3.jpg"> -->
                         <video muted loop>
                             <source src="./Wi_BigCountries.mp4" type="video/mp4">
                         </video>
+                        
                         <div class="storyInfo">
-                            <!-- <div class="storyTitle">
-                                3화. 다시, 안산은 한국의 미래다
-                            </div> -->
+                            <div class="storyTitle">
+                                <span>THE FUTURE</span>
+                                <h1>WILMER</h1>
+                            </div>
                             <div class="storyBtn">
                                 기사 읽기
                             </div>
-                            <!-- <div class="description">
-                                Story about delta.
-                            </div> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- pagination -->
         <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-vertical">
             <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
             <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>

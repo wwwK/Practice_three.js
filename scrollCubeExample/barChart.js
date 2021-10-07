@@ -86,3 +86,10 @@ tl.to(scene.rotation, {y:15, z: 0, scrollTrigger: {
     start: "center center",
     end: () => "+=" + container.clientHeight * 4, 
 }}) 
+
+let btn = document.querySelector('.button');
+btn.addEventListener('click', animateBar);
+
+function animateBar() {
+    console.log('pressed');
+}

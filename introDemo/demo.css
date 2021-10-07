@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,400;0,500;0,600;1,600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
 html, body {
     position: relative;
     height: 100%;
@@ -7,9 +7,7 @@ html, body {
 
 body {
     background: #eee;
-    /* font-family: Helvetica Neue, Helvetica, Arial, sans-serif; */
-    font-family: 'Roboto Mono', monospace;
-    font-family: 'Gowun Batang', serif;
+    font-family: 'Nanum Gothic', sans-serif;
     font-size: 14px;
     color: #000;
     margin: 0;
@@ -24,7 +22,8 @@ body {
 .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    color: white;
+    background-color: black;
 
     /* Center slide text vertically */
     display: -webkit-box;
@@ -74,14 +73,14 @@ body {
 }
 
 .title {
-    font-size: 5.5rem;
+    font-size: 2.5rem;
     font-weight: 600;
     text-transform: uppercase;
     margin: 2rem;
 }
 
 .soundCon {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin: 2rem;
     color: gray;
 }
@@ -120,9 +119,11 @@ video {
 }
 
 .test {
+    width: 500px;
+    line-height: 2rem;
     opacity: 1;
     transition: opacity 0.3s ease-in-out;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.74);
     color: white;
     font-size: 1.5rem;
     padding: 2rem;
@@ -156,13 +157,13 @@ video {
 .beginBtn {
     cursor: pointer;
     margin: 2rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     background-color: white;
     color: black;
-    padding: 1rem;
+    padding: 0.5rem;
     padding-left: 2rem;
     padding-right: 2rem;
-    border-radius: 10%;
+    font-weight: 700;
 }
 
 p {
@@ -182,6 +183,7 @@ p {
     align-items: center;
     flex: 1;
     transition: all 0.5s;
+    overflow: hidden;
 }
 
 .story video {
@@ -192,19 +194,41 @@ p {
     transition: all 0.5s;
 }
 
-/* .story img {
+.storyImgCon {
+    position: absolute;
+    width: 100%;
     height: 100%;
-    position: relative;
-    filter: grayscale() brightness(0.5);
+    display: flex;
+    z-index: 1;
+}
+
+.storyImg {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
     transition: all 0.5s;
     cursor: pointer;
-} */
+}
+
+.storyImg img {
+    position: relative;
+    height: 700px;
+    width: 120%;
+    object-fit: contain;
+    transform: translate(-50%, 50px);
+    transition: all 0.5s;
+}
+
+
 
 .storyInfo {
     position: absolute;
     color: white;
-    bottom: 0;
-    margin-bottom: 5rem;
+    top: 0;
+    margin-top: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -217,7 +241,14 @@ p {
 
 .storyTitle {
     font-size: 1.8rem;
+    padding: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
     background-color: black;
+}
+
+h1 {
+    margin: 0;
 }
 
 .storyBtn {
@@ -232,12 +263,196 @@ p {
 
 .videoBtn {
     cursor: pointer;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     position: absolute;
-    background-color: green;
+    background-color: rgba(0, 0, 0, 0.603);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
     z-index: 10;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    position: absolute;
+    bottom: 0;
 }
 
-.swiper-pagination-bullet { width: 12px; height: 12px; background: transparent; border: 1px solid pink; opacity: 1; }
-.swiper-pagination-bullet-active { width: 40px; transition: width .5s; border-radius: 5px; background: pink; border: 1px solid transparent; }
+.soundBtn {
+    cursor: pointer;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    font-size: 22px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#vUp, #vMute {
+    position: absolute;
+}
+
+.videoBtn svg {
+    position: absolute;
+    fill: transparent;
+    stroke: rgba(255, 255, 255, 0.466);
+    stroke-width: 4px;
+}
+
+.swiper-pagination-bullet { 
+    width: 20px !important; 
+    height: 4px !important; 
+    background: white !important; 
+    /* border: 1px solid pink;  */
+    opacity: 1;
+    border-radius: 0% !important; 
+}
+.swiper-pagination-bullet-active { 
+    width: 40px !important; 
+    transition: width .5s !important; 
+    /* border-radius: 5px;  */
+    background: pink; 
+    /* border: 1px solid transparent;  */
+}
+
+.swiper-pagination-lock {
+    display: initial !important;
+}
+
+#bar {
+    transform-origin: center;
+    transform: rotate(-90deg);
+    transition: stroke-dashoffset 0.5s linear;
+    stroke: white;
+    stroke-width: 4px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+#iconPlay {
+    position: absolute;
+}
+
+#iconPause {
+    position: absolute;
+}
+
+
+.mapContainer {
+    width: 100%;
+    height: 100%;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.button {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+}
+
+.gradientImage {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.61));
+}
+
+.percentContainer {
+    width: 30%;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#pctVal {
+    font-size: 8rem;
+    font-weight: 700;
+    z-index: 1;
+}
+
+.perIcon {
+    font-size: 7rem;
+    margin: 1rem;
+}
+
+.pctCircle {
+    background: black;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 0;
+}
+
+.percentContainer i {
+    font-size: 50px;
+    color: white;
+    position: absolute;
+    bottom: 300px;
+    z-index: 1;
+}
+
+.chartCon {
+    width: 100%;
+    height: 200vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#chart {
+    text-align: center;
+    position: sticky;
+    top: 40px;
+}
+
+.skipBtn {
+    font-size: 1.2rem;
+    position: fixed;
+    margin: 1rem;
+    color: white;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    visibility: visible;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.backBtn {
+    font-size: 1.2rem;
+    position: fixed;
+    margin: 1rem;
+    color: white;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    visibility: hidden;
+    cursor: pointer;
+    transition: all 0.2s;
+}

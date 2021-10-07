@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro Demo</title>
+    <link href="./korean.css" rel="stylesheet">
+
+    <!-- swiper.js -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <!-- mapbox -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- d3 -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <div class="skipBtn"> <i class="fas fa-caret-right"></i> SKIP INTRODUCTION</div>
+    <div class="backBtn"> <i class="fas fa-caret-left"></i> BACK TO INTRODUCTION</div>
+    <div class="swiper mySwiper swiper-initialized swiper-vertical swiper-pointer-events">
+        <div class="swiper-wrapper" id="swiper-wrapper-test1" aria-live="polite">
+            <!-- 첫 화면 -->
+            <div class="swiper-slide" role="group" aria-label="1/5"> 
+                <div class="mainContainer">
+                    <div class="backgroundImage">
+                        <img src="./main2.jpg">
+                    </div>
+                    <p class="title"> 안산은 한국의 미래다 </p>
+                    <div class="description">
+                        외국인노동자와 공존을 택해 ‘젊은 도시’가 된 안산.
+                        안산은 외국인노동자의 숨통을 틔워 주는 곳이지만 편견과 배척이 여전한 곳이기도 하다.
+                    </div>
+                    <div class="soundCon">
+                        <i class="fas fa-headphones-alt"></i>
+                        이 기사에는 소리가 포함되어 있습니다
+                    </div>
+                    <div class="beginBtn">
+                        <p>시작하기</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 두번째 슬라이드 & nested slides -->
+            <!-- [비디오 재생/정지 + 소리 on/off + 텍스트박스] 예시 -->
+            <div class="swiper-slide boxContainer" role="group" aria-label="2/5">
+                <div class="video">
+                    <!-- 소리 on/off 버튼 -->
+                    <div class="soundBtn">
+                        <i class="fas fa-volume-mute" id="vMute"></i>
+                        <i class="fas fa-volume-up hidden" id="vUp"></i>
+                    </div>
+
+                    <!-- 비디오 재생/정지 버튼 -->
+                    <div class='videoBtn'>
+                        <div id="iconPlay" class="hidden">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div id="iconPause">
+                            <i class="fas fa-pause"></i>
+                        </div>
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="42"/>
+                        </svg>
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle id="bar" cx="50" cy="50" r="42"/>
+                        </svg>
+                    </div>
+
+                    <!-- 비디오 -->
+                    <video id="vid" autoplay muted loop>
+                        <source src="./Fl_KidsShipJump.mp4" type="video/mp4">
+                    </video>
+
+                    <!-- 노이즈 효과 -->
+                    <img src="./noise.gif">
+                </div>
+
+                <!-- Nested Slides -->
+                <div class="swiper mySwiper2 swiper-initialized swiper-vertical swiper-pointer-events">
+                    
+                    <div class="swiper-wrapper" id="swiper-wrapper-test2" aria-live="polite">
+                        <div class="swiper-slide swiper-slide-visible empty" role="group" aria-level="1 / 5">
+                            <div class="test">
+                                (Empty)
+                            </div>
+                        </div>
+                        <div class="swiper-slide" id="textBox" role="group" aria-level="2 / 5">
+                            <div class="test">
+                                초저출산으로 인한 인구감소가 한국사회에 직접적인 타격이 되지 않도록 하려면 경제활동인구
+                                규모를 유지하는 것이 중요하다.
+                            </div>
+                        </div>
+                        <div class="swiper-slide" id="textBox" role="group" aria-level="3 / 5">
+                            <div class="test">
+                                미국, 유럽, 일본 등에서 알 수 있듯 해법 중 하나는 외국인노동자.
+                            </div>
+                        </div>
+                        <div class="swiper-slide" id="textBox" role="group" aria-level="4 / 5">
+                            <div class="test">
+                                과연 한국은
+                                준비돼 있는가?
+                            </div>
+                        </div>
+                        <div class="swiper-slide empty" role="group" aria-level="5 / 5">
+                            <div class="test">
+                                (Empty)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+            </div>
+
+            <!-- 스크롤 반응 차트 넣을 예정 -->
+            <div class="swiper-slide" role="group" aria-label="3/5">
+                <div class="chartCon" id="chartCon">
+                    <div id="chart"></div>
+                </div>
+            </div>
+
+            <!-- 내부 요소 넣을 예정 -->
+            <div class="swiper-slide" role="group" aria-label="4/5">
+                <div class="mapContainer">
+                    <div id='map'></div>
+                </div>
+                <div class="button">
+                    toggle
+                </div>
+                <div id="container">
+                    <canvas id="c"></canvas>
+                    <div id="labels"></div>
+                </div>
+                <div class="gradientImage">
+                    
+                </div>
+                <!-- <div class="button b1">seoul</div>
+                <div class="button b2">ansan</div>
+                <div class="button b3">wongok</div>
+                <div class="button b4">school</div>   -->
+                <div class="percentContainer">
+                    <i class="fas fa-arrow-circle-right" id="b4"></i>
+                    <i class="fas fa-arrow-circle-right" id="b3"></i>
+                    <i class="fas fa-arrow-circle-right" id="b2"></i>
+                    <i class="fas fa-arrow-circle-right" id="b1"></i>
+                    <div id="pctVal"></div>
+                </div>
+            </div>
+
+            <!-- 회차 이동 -->
+            <div class="swiper-slide" role="group" aria-label="5/5">
+                <div class="storyContainer">
+                    <!-- png 이미지 컨테이너 -->
+                    <div class="storyImgCon">
+                        <div class="storyImg" id="si1">
+                            <img src="./side1.png">
+                        </div>
+                        <div class="storyImg" id="si2">
+                            <img src="./side2.png">
+                        </div>
+                        <div class="storyImg" id="si3">
+                            <img src="./side3.png">
+                        </div>
+                    </div>
+
+                    <!-- 스토리 -->
+                    <div class="story story1">
+                        <video muted loop>
+                            <source src="./Iz_Intro.mp4" type="video/mp4">
+                        </video>
+                    
+                        <div class="storyInfo">
+                            <div class="storyTitle">
+                                <span>THE PRESENT</span>
+                                <h1>IZERMAN</h1>
+                            </div>
+                            <div class="storyBtn">
+                                <p>기사 읽기</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story story2">
+                        <video muted loop>
+                            <source src="./Fl_IzermanStory.mp4" type="video/mp4">
+                        </video>
+                        
+                        <div class="storyInfo">
+                            <div class="storyTitle">
+                                <span>THE PAST</span>
+                                <h1>JULIA</h1>
+                            </div>
+                            <div class="storyBtn">
+                                기사 읽기
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story story3">
+                        <video muted loop>
+                            <source src="./Wi_BigCountries.mp4" type="video/mp4">
+                        </video>
+                        
+                        <div class="storyInfo">
+                            <div class="storyTitle">
+                                <span>THE FUTURE</span>
+                                <h1>WILMER</h1>
+                            </div>
+                            <div class="storyBtn">
+                                기사 읽기
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- pagination -->
+        <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-vertical">
+            <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+            <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+            <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+            <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+            <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+        </div>
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+    </div>
+    
+    <script src="./korean.js" type="module"></script>
+</body>
+</html>
